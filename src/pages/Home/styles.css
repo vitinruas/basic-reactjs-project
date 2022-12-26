@@ -1,0 +1,29 @@
+.container {
+  min-height: 100vh;
+  max-width: 1200px;
+  background: #eee;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container h1 {
+  font-size: 3rem;
+}
+
+.search-input {
+  width: 20rem;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+}
+
+.search-title {
+  font-size: 2rem;
+}
+
+.search-title > strong {
+  font-size: 1.5rem;
+}
