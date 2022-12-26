@@ -14,16 +14,6 @@
   font-size: 3rem;
 }
 
-.search-input {
-  width: 20rem;
-  padding: 0.5rem 1rem;
-  margin: 1rem;
-}
-
-.search-title {
-  font-size: 2rem;
-}
-
-.search-title > strong {
-  font-size: 1.5rem;
+.search-container {
+  width: 80%;
 }
