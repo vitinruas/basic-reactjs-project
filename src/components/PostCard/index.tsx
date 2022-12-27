@@ -1,8 +1,8 @@
-import IPost from "../../interfaces/post-interface";
-import "./styles.css";
+import IPost from '../../interfaces/post-interface'
+import './styles.css'
 
 interface IPostCardProps {
-  post: IPost;
+  post: IPost
 }
 
 const PostCard = ({ post }: IPostCardProps) => {
@@ -17,6 +17,6 @@ const PostCard = ({ post }: IPostCardProps) => {
         <p>Description: {post.body}</p>
       </div>
     </div>
-  );
-};
-export { PostCard };
+  )
+}
+export { PostCard }

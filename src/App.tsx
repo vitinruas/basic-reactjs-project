@@ -1,6 +1,6 @@
-import "./App.css";
-import { Component } from "react";
-import { Home } from "./pages/Home";
+import './App.css'
+import { Component } from 'react'
+import { Home } from './pages/Home'
 
 class App extends Component {
   render() {
@@ -8,8 +8,9 @@ class App extends Component {
       <div className="App">
         <Home />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
+

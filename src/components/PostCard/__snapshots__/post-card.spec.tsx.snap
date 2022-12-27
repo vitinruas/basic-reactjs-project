@@ -20,7 +20,7 @@ exports[`<PostCard /> Must match snapshot 1`] = `
       any_title
     </h1>
     <p>
-      Description: 
+      Description:
       any_body
     </p>
   </div>

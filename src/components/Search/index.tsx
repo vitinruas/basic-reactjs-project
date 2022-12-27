@@ -1,14 +1,14 @@
-import { Component } from "react";
-import "./styles.css";
+import { Component } from 'react'
+import './styles.css'
 
 interface ISearchProps {
-  value: string;
-  handleOnChange: (value: string) => void;
+  value: string
+  handleOnChange: (value: string) => void
 }
 
 class Search extends Component<ISearchProps> {
   render() {
-    const { value, handleOnChange } = this.props;
+    const { value, handleOnChange } = this.props
     return (
       <div className="search-container">
         {!!value && (
@@ -24,8 +24,8 @@ class Search extends Component<ISearchProps> {
           onChange={(e) => handleOnChange(e.target.value)}
         />
       </div>
-    );
+    )
   }
 }
 
-export { Search };
+export { Search }

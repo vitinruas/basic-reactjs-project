@@ -1,12 +1,12 @@
-import "./styles.css";
-import IPost from "../../interfaces/post-interface";
-import { PostCard } from "../PostCard";
-import { HandlerButton } from "../HandlerButton";
+import './styles.css'
+import IPost from '../../interfaces/post-interface'
+import { PostCard } from '../PostCard'
+import { HandlerButton } from '../HandlerButton'
 
 interface IPostsProps {
-  posts: IPost[];
-  isItOver: boolean;
-  loadMorePosts: () => void;
+  posts: IPost[]
+  isItOver: boolean
+  loadMorePosts: () => void
 }
 
 const Posts = ({ posts, isItOver, loadMorePosts }: IPostsProps) => {
@@ -17,15 +17,11 @@ const Posts = ({ posts, isItOver, loadMorePosts }: IPostsProps) => {
           {posts.map((post) => (
             <PostCard key={post.id} post={post} />
           ))}
-          <HandlerButton
-            text="Load more Posts"
-            handleOnClick={loadMorePosts}
-            toDisable={isItOver}
-          />
+          <HandlerButton text="Load more Posts" handleOnClick={loadMorePosts} toDisable={isItOver} />
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export { Posts };
+export { Posts }
