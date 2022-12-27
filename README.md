@@ -18,20 +18,20 @@ _There is nothing special here, however if you want to see what I've made you ca
 
 ## To run you just need to type one of these commands in your terminal or cmd:
 
-### NPM:
+### npm:
 
 `npm start`
 
-### YARN:
+### yarn:
 
 `yarn start`
 
 ## To build it's simple, too:
 
-### NPM:
+### npm:
 
 `npm build`
 
-### YARN:
+### yarn:
 
 `yarn build`
