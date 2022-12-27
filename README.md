@@ -12,11 +12,11 @@ _There is nothing special here, however if you want to see what I've made you ca
 
 # How can I run and build your source?
 
-## You can download this source project and see what have in it.
+## You can download this project source and see what have in it.
 
-_**NodeJS is required to run this project**_
+**NodeJS is required to run this project**
 
-## to run you just need to type one of these commands in your terminal or cmd:
+## To run you just need to type one of these commands in your terminal or cmd:
 
 ### NPM:
 
@@ -26,7 +26,7 @@ _**NodeJS is required to run this project**_
 
 `yarn start`
 
-## to build it's simple, too:
+## To build it's simple, too:
 
 ### NPM:
 
