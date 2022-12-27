@@ -18,8 +18,8 @@ describe('<PostCard />', () => {
     const title = screen.getByRole('heading', { name: fakePost.title })
     const paragraph = screen.getByText(/any_body/)
 
-    expect(img).toHaveAttribute('src', fakePost.photo)
     expect(title).toBeInTheDocument()
+    expect(img).toHaveAttribute('src', fakePost.photo)
     expect(paragraph).toBeInTheDocument()
   })
 

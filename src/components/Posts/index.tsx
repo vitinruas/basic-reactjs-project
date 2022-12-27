@@ -4,7 +4,7 @@ import { PostCard } from '../PostCard'
 import { HandlerButton } from '../HandlerButton'
 
 interface IPostsProps {
-  posts: IPost[]
+  posts?: IPost[]
   isItOver: boolean
   loadMorePosts: () => void
 }

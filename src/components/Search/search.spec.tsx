@@ -19,7 +19,8 @@ describe('<Search />', () => {
     expect((input as IHTMLElement).value).toBe('any_value')
   })
   test('Should call handleChange function on each key pressed', () => {
-    const { debug } = render(<Search value="" handleOnChange={fakeProps.handleOnChange} />)
+    render(<Search value="" handleOnChange={fakeProps.handleOnChange} />)
+
     const input = screen.getByPlaceholderText(/search for something/i)
     const value = 'value_typed'
     userEvent.type(input, value)

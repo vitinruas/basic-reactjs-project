@@ -38,7 +38,7 @@ describe('<Posts />', () => {
   })
 
   test('Should not render posts', async () => {
-    render(<Posts {...fakeProps} posts={[]} />)
+    render(<Posts loadMorePosts={fakeProps.loadMorePosts} isItOver={fakeProps.isItOver} />)
     expect(screen.queryByRole('heading', { name: 'any_title_1' })).not.toBeInTheDocument()
   })
 
