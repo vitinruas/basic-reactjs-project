@@ -1,4 +1,4 @@
-import IPost from "../pages/post-interface";
+import IPost from "../interfaces/post-interface";
 
 const loadPosts = async (): Promise<IPost[]> => {
   const postsPromise = fetch("https://jsonplaceholder.typicode.com/posts");

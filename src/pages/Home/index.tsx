@@ -1,7 +1,7 @@
 import "./styles.css";
 import { Component } from "react";
 // interfaces
-import IPost from "../../pages/post-interface";
+import IPost from "../../interfaces/post-interface";
 //components
 import { loadPosts } from "../../utils/load-posts";
 import { Posts } from "../../components/Posts";
@@ -70,13 +70,11 @@ class Home extends Component {
       <div className="container">
         <Search value={searchValue} handleOnChange={this.handleInput} />
 
-        {filteredPosts.length > 0 && (
-          <Posts
-            posts={filteredPosts}
-            isItOver={isItOver}
-            loadMorePosts={this.loadMorePosts}
-          />
-        )}
+        <Posts
+          posts={filteredPosts}
+          isItOver={isItOver}
+          loadMorePosts={this.loadMorePosts}
+        />
 
         {filteredPosts.length === 0 && <span>There is not anything :(</span>}
       </div>

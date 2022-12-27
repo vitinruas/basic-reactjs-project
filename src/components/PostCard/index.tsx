@@ -1,4 +1,4 @@
-import IPost from "../../pages/post-interface";
+import IPost from "../../interfaces/post-interface";
 import "./styles.css";
 
 interface IPostCardProps {
@@ -13,7 +13,7 @@ const PostCard = ({ post }: IPostCardProps) => {
         <img src={post.photo} alt={post.title} />
       </picture>
       <div key={post.id} className="post-content">
-        <strong>{post.title}</strong>
+        <h1>{post.title}</h1>
         <p>Description: {post.body}</p>
       </div>
     </div>

@@ -4,16 +4,17 @@ import React from "react";
 import "./styles.css";
 
 interface IButtonProps {
+  text: string;
   handleOnClick: () => void;
   toDisable: boolean;
 }
 
 class HandlerButton extends Component<IButtonProps> {
   render() {
-    const { handleOnClick, toDisable } = this.props as IButtonProps;
+    const { text, handleOnClick, toDisable } = this.props as IButtonProps;
     return (
       <button className="button" onClick={handleOnClick} disabled={toDisable}>
-        Load more posts
+        {text}
       </button>
     );
   }
