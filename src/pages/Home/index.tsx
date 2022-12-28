@@ -55,7 +55,7 @@ const Home = () => {
 
       <HandlerButton text="Load more Posts" handleOnClick={loadMorePosts} toDisable={isItOver} />
 
-      {filteredPosts.length === 0 && <span>There is not anything :(</span>}
+      {!filteredPosts.length && <span>There is not anything :(</span>}
     </div>
   )
 }
