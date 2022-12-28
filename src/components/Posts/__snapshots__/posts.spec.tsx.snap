@@ -19,9 +19,9 @@ exports[`<Posts /> Should match snapshot 1`] = `
     <div
       class="post-content"
     >
-      <h1>
+      <h3>
         any_title_1
-      </h1>
+      </h3>
       <p>
         Description: 
         any_body_1
@@ -43,19 +43,14 @@ exports[`<Posts /> Should match snapshot 1`] = `
     <div
       class="post-content"
     >
-      <h1>
+      <h3>
         any_title_2
-      </h1>
+      </h3>
       <p>
         Description: 
         any_body_2
       </p>
     </div>
   </div>
-  <button
-    class="button"
-  >
-    Load more Posts
-  </button>
 </div>
 `;

@@ -16,9 +16,9 @@ exports[`<PostCard /> Must match snapshot 1`] = `
   <div
     class="post-content"
   >
-    <h1>
+    <h3>
       any_title
-    </h1>
+    </h3>
     <p>
       Description: 
       any_body
