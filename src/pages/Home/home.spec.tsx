@@ -83,4 +83,11 @@ describe('<Home />', () => {
     await waitForElementToBeRemoved(noMorePosts, { timeout: 500 })
     screen.debug()
   })
+
+  test('Should render search', async () => {
+    render(<Home />)
+    const search = screen.getByPlaceholderText(/search for something/i)
+
+    expect(search).toBeInTheDocument()
+  })
 })
