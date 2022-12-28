@@ -74,13 +74,28 @@ describe('<Home />', () => {
   afterAll(() => {
     server.close()
   })
-  test('Should render posts', async () => {
+  test('Should render posts correctly', async () => {
     render(<Home />)
     const noMorePosts = screen.getByText(/there is not anything/i)
 
     expect(noMorePosts).toBeInTheDocument()
 
+    expect.assertions(7)
+
     await waitForElementToBeRemoved(noMorePosts, { timeout: 500 })
+
+    const images = screen.getAllByRole('img', { name: /any_title/i })
+    expect(images).toHaveLength(3)
+
+    expect(images[0]).toHaveAttribute('src', 'any_url_1')
+    expect(images[1]).toHaveAttribute('src', 'any_url_2')
+    expect(images[2]).toHaveAttribute('src', 'any_url_3')
+
+    const titles = screen.getAllByRole('heading', { name: /any_title/i })
+    expect(titles).toHaveLength(3)
+
+    const descriptions = screen.getAllByText(/any_body/i)
+    expect(descriptions).toHaveLength(3)
     screen.debug()
   })
 
