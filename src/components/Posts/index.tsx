@@ -1,15 +1,12 @@
 import './styles.css'
 import IPost from '../../interfaces/post-interface'
 import { PostCard } from '../PostCard'
-import { HandlerButton } from '../HandlerButton'
 
 interface IPostsProps {
   posts?: IPost[]
-  isItOver: boolean
-  loadMorePosts: () => void
 }
 
-const Posts = ({ posts, isItOver, loadMorePosts }: IPostsProps) => {
+const Posts = ({ posts }: IPostsProps) => {
   return (
     <div className="posts">
       {posts && (
@@ -17,7 +14,6 @@ const Posts = ({ posts, isItOver, loadMorePosts }: IPostsProps) => {
           {posts.map((post) => (
             <PostCard key={post.id} post={post} />
           ))}
-          <HandlerButton text="Load more Posts" handleOnClick={loadMorePosts} toDisable={isItOver} />
         </>
       )}
     </div>

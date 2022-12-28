@@ -13,7 +13,7 @@ const PostCard = ({ post }: IPostCardProps) => {
         <img src={post.photo} alt={post.title} />
       </picture>
       <div key={post.id} className="post-content">
-        <h1>{post.title}</h1>
+        <h3>{post.title}</h3>
         <p>Description: {post.body}</p>
       </div>
     </div>

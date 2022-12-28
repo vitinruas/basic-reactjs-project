@@ -18,12 +18,10 @@ const fakeProps = {
       userId: 2,
     },
   ],
-  isItOver: false,
-  loadMorePosts: () => {},
 }
 
 describe('<Posts />', () => {
-  test('Should render <Posts />', async () => {
+  test('Should render <Posts /> correctly', async () => {
     render(<Posts {...fakeProps} />)
 
     const titleArray = screen.getAllByRole('heading', { name: /title/i })
@@ -37,8 +35,8 @@ describe('<Posts />', () => {
     expect(screen.getByRole('img', { name: /any_title_1/i })).toHaveAttribute('src', 'any_photo_1')
   })
 
-  test('Should not render posts', async () => {
-    render(<Posts loadMorePosts={fakeProps.loadMorePosts} isItOver={fakeProps.isItOver} />)
+  test('Should not render posts if it does not exist posts', async () => {
+    render(<Posts />)
     expect(screen.queryByRole('heading', { name: 'any_title_1' })).not.toBeInTheDocument()
   })
 

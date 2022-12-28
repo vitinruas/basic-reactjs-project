@@ -1,75 +1,63 @@
 import './styles.css'
-import { Component } from 'react'
 // interfaces
 import IPost from '../../interfaces/post-interface'
-//components
-import { loadPosts } from '../../utils/load-posts'
+// components
+import { loadPostsUtils } from '../../utils/load-posts'
 import { Posts } from '../../components/Posts'
-import { loadMorePosts } from '../../utils/load-more-posts'
+import { loadMorePostsUtils } from '../../utils/load-more-posts'
 import { Search } from '../../components/Search'
+import { useState, useEffect, useCallback } from 'react'
+import { HandlerButton } from '../../components/HandlerButton'
 
-class Home extends Component {
-  state: {
-    posts: IPost[]
-    allPosts: IPost[]
-    currentLoad: number
-    postsPerLoad: number
-    searchValue: string
-  } = {
-    posts: [],
-    allPosts: [],
-    currentLoad: 0,
-    postsPerLoad: 12,
-    searchValue: '',
+const Home = () => {
+  const [posts, setPosts] = useState<IPost[]>([])
+  const [allPosts, setAllPosts] = useState<IPost[]>([])
+  const [currentLoad, setCurrentLoad] = useState<number>(0)
+  const [postsPerLoad, setPostsPerLoad] = useState<number>(12)
+  const [searchValue, setSearchValue] = useState<string>('')
+
+  const loadPosts = useCallback(() => {
+    const request = async () => {
+      const allPosts = await loadPostsUtils()
+      setAllPosts(allPosts)
+      setPosts(allPosts.splice(0, 12))
+    }
+    request()
+  }, [])
+
+  useEffect(() => {
+    loadPosts()
+  }, [loadPosts])
+
+  const handleInput = (value: string): void => {
+    setSearchValue(value)
   }
 
-  async componentDidMount(): Promise<void> {
-    await this.loadPosts()
+  const loadMorePosts = (): void => {
+    const { newCurrentLoad, newLoadedPosts } = loadMorePostsUtils(currentLoad, postsPerLoad, posts, allPosts)
+    setPosts(newLoadedPosts)
+    setCurrentLoad(newCurrentLoad)
   }
 
-  loadPosts = async (): Promise<void> => {
-    const allPosts: IPost[] = await loadPosts()
-    this.setState({
-      allPosts,
-      posts: allPosts.slice(0, 12),
-    })
-  }
+  const filteredPosts = searchValue
+    ? allPosts.filter((post) => {
+        return post.title.toLowerCase().includes(searchValue.toLowerCase())
+      })
+    : posts
 
-  handleInput = (value: string) => {
-    this.setState({
-      searchValue: value,
-    })
-  }
+  const isItOver = currentLoad + postsPerLoad >= allPosts.length
 
-  loadMorePosts = () => {
-    const { posts, allPosts, currentLoad, postsPerLoad } = this.state
-    const { newCurrentLoad, newLoadedPosts } = loadMorePosts(currentLoad, postsPerLoad, posts, allPosts)
-    this.setState({
-      currentLoad: newCurrentLoad,
-      posts: newLoadedPosts,
-    })
-  }
+  return (
+    <div className="container">
+      <Search value={searchValue} handleOnChange={handleInput} />
 
-  render() {
-    const { posts, allPosts, currentLoad, postsPerLoad, searchValue } = this.state
+      <Posts posts={filteredPosts} />
 
-    const filteredPosts = !!searchValue
-      ? allPosts.filter((post) => {
-          return post.title.toLowerCase().includes(searchValue.toLowerCase())
-        })
-      : posts
+      <HandlerButton text="Load more Posts" handleOnClick={loadMorePosts} toDisable={isItOver} />
 
-    const isItOver = currentLoad + postsPerLoad >= allPosts.length
-    return (
-      <div className="container">
-        <Search value={searchValue} handleOnChange={this.handleInput} />
-
-        <Posts posts={filteredPosts} isItOver={isItOver} loadMorePosts={this.loadMorePosts} />
-
-        {filteredPosts.length === 0 && <span>There is not anything :(</span>}
-      </div>
-    )
-  }
+      {filteredPosts.length === 0 && <span>There is not anything :(</span>}
+    </div>
+  )
 }
 
 export { Home }

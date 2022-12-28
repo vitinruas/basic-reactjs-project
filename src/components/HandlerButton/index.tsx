@@ -3,15 +3,15 @@ import React from 'react'
 
 import './styles.css'
 
-interface IButtonProps {
+export interface IHandlerButtonProps {
   text: string
   handleOnClick: () => void
   toDisable: boolean
 }
 
-class HandlerButton extends Component<IButtonProps> {
+class HandlerButton extends Component<IHandlerButtonProps> {
   render() {
-    const { text, handleOnClick, toDisable } = this.props as IButtonProps
+    const { text, handleOnClick, toDisable } = this.props as IHandlerButtonProps
     return (
       <button className="button" onClick={handleOnClick} disabled={toDisable}>
         {text}

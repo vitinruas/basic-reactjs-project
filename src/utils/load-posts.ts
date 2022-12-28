@@ -1,6 +1,6 @@
 import IPost from '../interfaces/post-interface'
 
-const loadPosts = async (): Promise<IPost[]> => {
+const loadPostsUtils = async (): Promise<IPost[]> => {
   const postsPromise = fetch('https://jsonplaceholder.typicode.com/posts')
   const photosPromise = fetch('https://jsonplaceholder.typicode.com/photos')
 
@@ -15,4 +15,4 @@ const loadPosts = async (): Promise<IPost[]> => {
   return photoWithPosts
 }
 
-export { loadPosts }
+export { loadPostsUtils }
