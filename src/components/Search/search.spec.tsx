@@ -14,14 +14,14 @@ describe('<Search />', () => {
   test('Should exists a value', () => {
     render(<Search {...fakeProps} />)
 
-    const input = screen.getByPlaceholderText(/search for something/i)
+    const input = screen.getByPlaceholderText(/type to look for something/i)
 
     expect((input as IHTMLElement).value).toBe('any_value')
   })
   test('Should call handleChange function on each key pressed', () => {
     render(<Search value="" handleOnChange={fakeProps.handleOnChange} />)
 
-    const input = screen.getByPlaceholderText(/search for something/i)
+    const input = screen.getByPlaceholderText(/type to look for something/i)
     const value = 'value_typed'
     userEvent.type(input, value)
 
