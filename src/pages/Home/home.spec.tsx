@@ -379,6 +379,7 @@ describe('<Home />', () => {
 
   test('Should render 1 post when only user looks for a post', async () => {
     render(<Home />)
+    expect.assertions(3)
     const noMorePosts = screen.getByText(/there is not anything/i)
 
     expect(noMorePosts).toBeInTheDocument()
@@ -395,6 +396,8 @@ describe('<Home />', () => {
   test('Should load more 12 posts if the button load more posts is clicked', async () => {
     render(<Home />)
 
+    expect.assertions(4)
+
     const noMorePosts = screen.getByText(/there is not anything/i)
 
     expect(noMorePosts).toBeInTheDocument()
@@ -407,5 +410,11 @@ describe('<Home />', () => {
     userEvent.click(loadMorePosts)
 
     expect(screen.getAllByRole('heading', { name: /any_title/i })).toHaveLength(24)
+    expect(loadMorePosts).toBeDisabled()
+  })
+
+  test('Should match a snapshot', () => {
+    const { container } = render(<Home />)
+    expect(container['firstChild']).toMatchSnapshot()
   })
 })
