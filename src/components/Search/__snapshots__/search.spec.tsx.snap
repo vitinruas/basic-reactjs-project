@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match a snapshot 1`] = `
+<div
+  class="search-container"
+>
+  <span
+    class="search-title"
+  >
+    Searching for: 
+    <strong>
+      any_value
+    </strong>
+  </span>
+  <input
+    class="search-input"
+    placeholder="Type to look for something"
+    type="text"
+    value="any_value"
+  />
+</div>
+`;
