@@ -377,6 +377,21 @@ describe('<Home />', () => {
     expect(search).toBeInTheDocument()
   })
 
+  test('Should render 1 post when only user looks for a post', async () => {
+    render(<Home />)
+    const noMorePosts = screen.getByText(/there is not anything/i)
+
+    expect(noMorePosts).toBeInTheDocument()
+
+    await waitForElementToBeRemoved(noMorePosts, { timeout: 500 })
+    expect(screen.getAllByRole('heading', { name: /any_title/i })).toHaveLength(12)
+
+    const search = screen.getByPlaceholderText(/type to look for something/i)
+
+    userEvent.type(search, 'any_title_10')
+    expect(screen.getAllByRole('heading', { name: /any_title/i })).toHaveLength(1)
+  })
+
   test('Should load more 12 posts if the button load more posts is clicked', async () => {
     render(<Home />)
 
