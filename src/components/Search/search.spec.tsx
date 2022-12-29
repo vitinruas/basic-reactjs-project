@@ -28,3 +28,8 @@ describe('<Search />', () => {
     expect(fakeProps.handleOnChange).toHaveBeenCalledTimes(value.length)
   })
 })
+
+test('Should match a snapshot', () => {
+  const { container } = render(<Search {...fakeProps} />)
+  expect(container['firstChild']).toMatchSnapshot()
+})
