@@ -19,7 +19,7 @@ class Search extends Component<ISearchProps> {
         <input
           className="search-input"
           type="text"
-          placeholder="Search for something"
+          placeholder="Type to look for something"
           value={value}
           onChange={(e) => handleOnChange(e.target.value)}
         />

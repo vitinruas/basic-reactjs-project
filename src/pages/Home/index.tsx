@@ -20,7 +20,7 @@ const Home = () => {
     const request = async () => {
       const allPosts = await loadPostsUtils()
       setAllPosts(allPosts)
-      setPosts(allPosts.splice(0, 12))
+      setPosts(allPosts.slice(0, postsPerLoad))
     }
     request()
   }, [])
@@ -55,7 +55,7 @@ const Home = () => {
 
       <HandlerButton text="Load more Posts" handleOnClick={loadMorePosts} toDisable={isItOver} />
 
-      {!filteredPosts.length && <span>There is not anything :(</span>}
+      {filteredPosts.length === 0 && <span>There is not anything :(</span>}
     </div>
   )
 }
